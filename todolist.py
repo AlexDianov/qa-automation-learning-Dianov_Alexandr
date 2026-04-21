@@ -15,14 +15,14 @@ class TodoList:
     def add_task(self, title: str) -> None:
         title = title.strip()
         if not title:
-            print('Нельзя добавить пустую задачу.')
+            print('Нельзя добавить пустую задачу!')
             return
         self.tasks.append(Task(title))
         print('Задача добавлена')
 
     def show_task(self) -> None:
         if not self.tasks:
-            print('Список задач пуст.')
+            print('Список задач пуст!')
             return
         print('\nТекущий список задач:')
         for i, task in enumerate(self.tasks, start = 1):
