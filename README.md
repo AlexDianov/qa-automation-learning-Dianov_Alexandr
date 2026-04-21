@@ -1,1 +1,1 @@
-# qa-automation-learning-Dianov_Alexandr
+Лист задач с добавлением\удалением задач и просмотром статистики
