@@ -23,6 +23,7 @@ class TodoList:
     def show_task(self) -> None:
         if not self.tasks:
             print('Список задач пуст.')
+            print()
             return
         print('\nТекущий список задач:')
         for i, task in enumerate(self.tasks, start = 1):
@@ -73,42 +74,43 @@ def main():
         print("0. Выход")
         choice = input('Выберите действие: ').strip()
         print()
-        if choice == '1':
-            title = input('Введите текст задачи - ')
-            todo.add_task(title)
-            print()
-        elif choice == '2':
-            todo.show_task()
-        elif choice == '3':
-            todo.show_task()
-            if not todo.tasks:
-                continue
-            s = input('Введите номер задачи для отметки: ').strip()
-            try:
-                idx = int(s)
-                todo.complete_task(idx)
-            except ValueError:
-                print(f'Ошибка: "{s}" не является числом.')
-            print()
-        elif choice == '4':
-            todo.show_task()
-            if not todo.tasks:
-                continue
-            s = input('Введите номер задачи для удаления: ').strip()
-            try:
-                idx = int(s)
-                todo.delete_task(idx)
-            except ValueError:
-                print(f'Ошибка "{s}" не является числом.')
-            print()
-        elif choice == '5':
-            todo.show_stats()
-            print()
-        elif choice == '0':
-            print('Выход из программы выполнен')
-            break
-        else:
-            print(f'Неизвестная команда: "{choice}". Попробуйте снова.\n')
+        match choice:
+            case '1':
+                title = input('Введите текст задачи - ')
+                todo.add_task(title)
+                print()
+            case '2':
+                todo.show_task()
+            case '3':
+                todo.show_task()
+                if not todo.tasks:
+                    continue
+                s = input('Введите номер задачи для отметки: ').strip()
+                try:
+                    idx = int(s)
+                    todo.complete_task(idx)
+                except ValueError:
+                    print(f'Ошибка: "{s}" не является числом.')
+                print()
+            case '4':
+                todo.show_task()
+                if not todo.tasks:
+                    continue
+                s = input('Введите номер задачи для удаления: ').strip()
+                try:
+                    idx = int(s)
+                    todo.delete_task(idx)
+                except ValueError:
+                    print(f'Ошибка "{s}" не является числом.')
+                print()
+            case '5':
+                todo.show_stats()
+                print()
+            case '0':
+                print('Выход из программы выполнен')
+                break
+            case _:
+                print(f'Неизвестная команда: "{choice}". Попробуйте снова.\n')
 
 
 if __name__ == '__main__':
