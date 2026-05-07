@@ -15,7 +15,7 @@ class TodoList:
     def add_task(self, title: str) -> None:
         title = title.strip()
         if not title:
-            print('Нельзя добавить пустую задачу.')
+            print('Нельзя добавить пустую задачу!')
             return
         self.tasks.append(Task(title))
         print('Задача добавлена')
